@@ -1,0 +1,7 @@
+Criar todos os componentes (controller ao model)
+
+Link de referencia:
+https://www.youtube.com/watch?v=XbknBOmMuPQ&list=PLGDwUiT1wr6-Fn3N2oqJpTdhGjFHnIIKY
+
+Postman Link:
+https://www.getpostman.com/collections/b786bc973f23a5c65819
