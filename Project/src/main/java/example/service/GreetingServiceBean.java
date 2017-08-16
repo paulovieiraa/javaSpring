@@ -4,10 +4,13 @@ import example.model.Greeting;
 import example.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
 @Service
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class GreetingServiceBean implements GreetingService {
 
     @Autowired
@@ -26,16 +29,26 @@ public class GreetingServiceBean implements GreetingService {
     }
 
     @Override
+    @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
     public Greeting create(Greeting greeting) {
         if (greeting.getId() != null) {
             return null;
         }
         //create and update are the same.
         Greeting saveGreeting = repository.save(greeting);
+
+        /*A annotation @Transactional, realiza inserções no banco de dados. Quando elas falharem, pode se ocorrer um rollBack*/
+        if(saveGreeting.getId() == 4L){
+            throw new RuntimeException("\n\n*****************************" +
+                    "\nRoll me back !!!!! " +
+                    "\nExemplo de erro com a annotation @Transactional." +
+                    "\n*****************************");
+        }
         return saveGreeting;
     }
 
     @Override
+    @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
     public Greeting update(Greeting greeting) {
         Greeting greetingPersisted = findOne(greeting.getId());
 
@@ -48,6 +61,7 @@ public class GreetingServiceBean implements GreetingService {
     }
 
     @Override
+    @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
     public void delete(Long id) {
         repository.delete(id);
     }
