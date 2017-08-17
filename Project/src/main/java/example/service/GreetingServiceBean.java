@@ -3,6 +3,9 @@ package example.service;
 import example.model.Greeting;
 import example.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,20 +19,31 @@ public class GreetingServiceBean implements GreetingService {
     @Autowired
     private GreetingRepository repository;
 
+    /**
+     * findAll
+     */
     @Override
     public Collection<Greeting> findAll() {
         Collection<Greeting> greetings = repository.findAll();
         return greetings;
     }
 
+    /**
+     * findOne
+     */
     @Override
+    @Cacheable(value = "greetings", key = "#id")
     public Greeting findOne(Long id) {
         Greeting greeting = repository.findOne(id);
         return greeting;
     }
 
+    /**
+     * Save
+     */
     @Override
-    @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    @CachePut(value = "greetings", key = "#result.id")
     public Greeting create(Greeting greeting) {
         if (greeting.getId() != null) {
             return null;
@@ -38,7 +52,7 @@ public class GreetingServiceBean implements GreetingService {
         Greeting saveGreeting = repository.save(greeting);
 
         /*A annotation @Transactional, realiza inserções no banco de dados. Quando elas falharem, pode se ocorrer um rollBack*/
-        if(saveGreeting.getId() == 4L){
+        if (saveGreeting.getId() == 4L) {
             throw new RuntimeException("\n\n*****************************" +
                     "\nRoll me back !!!!! " +
                     "\nExemplo de erro com a annotation @Transactional." +
@@ -47,8 +61,12 @@ public class GreetingServiceBean implements GreetingService {
         return saveGreeting;
     }
 
+    /**
+     * Update
+     */
     @Override
-    @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    @CachePut(value = "greetings", key = "#greeting.id")
     public Greeting update(Greeting greeting) {
         Greeting greetingPersisted = findOne(greeting.getId());
 
@@ -60,9 +78,21 @@ public class GreetingServiceBean implements GreetingService {
         return updatedGreeting;
     }
 
+    /**
+     * Delete
+     */
     @Override
-    @Transactional (propagation = Propagation.REQUIRED, readOnly = false)
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    @CacheEvict(value = "greetings", key = "#id")
     public void delete(Long id) {
         repository.delete(id);
+    }
+
+    /**
+     * EvictCache
+     */
+    @Autowired
+    @CacheEvict(value = "greetings", allEntries = true)
+    public void evictCache() {
     }
 }
