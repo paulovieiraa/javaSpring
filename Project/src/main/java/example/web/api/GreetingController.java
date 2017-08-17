@@ -19,11 +19,15 @@ public class GreetingController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Autowired
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
     /**
      * Get all
