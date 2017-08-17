@@ -19,7 +19,7 @@ public class GreetingBatchBean {
     private GreetingService greetingService;
 
     /*Forma mais utilizada atualmente.*/
-    @Scheduled(cron = "0,30 * * * * *")
+//    @Scheduled(cron = "0,50 * * * * *")
     public void cronJob() {
         logger.info("> cronJob");
 
