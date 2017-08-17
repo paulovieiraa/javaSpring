@@ -5,11 +5,13 @@ import example.service.GreetingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
+@Profile("batch")
 @Component
 public class GreetingBatchBean {
 
@@ -19,7 +21,7 @@ public class GreetingBatchBean {
     private GreetingService greetingService;
 
     /*Forma mais utilizada atualmente.*/
-//    @Scheduled(cron = "0,50 * * * * *")
+    @Scheduled(cron = "${batch.greeting.cron}")
     public void cronJob() {
         logger.info("> cronJob");
 
@@ -33,7 +35,7 @@ public class GreetingBatchBean {
     /*Formas antigas de fazer o Scheduled com tempo de Delay*/
 
     // Metodo 1
-    //    @Scheduled(initialDelay = 5000, fixedRate = 15000)
+//        @Scheduled(initialDelayString = "${batch.greeting.initialDelay}", fixedRateString = "${batch.greeting.fixedRate")
     public void fixedRateJobWithInitialDelay() {
         logger.info("> fixedRateJobWithInitialDelay");
 
@@ -51,7 +53,7 @@ public class GreetingBatchBean {
     }
 
     // Metodo 2
-    //    @Scheduled (initialDelay = 5000 , fixedDelay = 15000)
+//        @Scheduled (initialDelayString = "${batch.greeting.initialDelay" , fixedDelayString = "${batch.greeting.fixedDelay")
     public void fixedDelayJobWithInitialDelay() {
         fixedRateJobWithInitialDelay();
     }
