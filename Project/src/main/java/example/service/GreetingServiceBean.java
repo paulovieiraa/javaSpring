@@ -16,8 +16,12 @@ import java.util.Collection;
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class GreetingServiceBean implements GreetingService {
 
+    private final GreetingRepository repository;
+
     @Autowired
-    private GreetingRepository repository;
+    public GreetingServiceBean(GreetingRepository repository) {
+        this.repository = repository;
+    }
 
     /**
      * findAll
