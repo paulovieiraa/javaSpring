@@ -17,8 +17,12 @@ public class GreetingBatchBean {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private final GreetingService greetingService;
+
     @Autowired
-    private GreetingService greetingService;
+    public GreetingBatchBean(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
     /*Forma mais utilizada atualmente.*/
     @Scheduled(cron = "${batch.greeting.cron}")
