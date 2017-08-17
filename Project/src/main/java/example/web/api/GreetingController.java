@@ -21,12 +21,12 @@ public class GreetingController {
 
     private final GreetingService greetingService;
 
-    @Autowired
-    private EmailService emailService;
+    private final EmailService emailService;
 
     @Autowired
-    public GreetingController(GreetingService greetingService) {
+    public GreetingController(GreetingService greetingService, EmailService emailService) {
         this.greetingService = greetingService;
+        this.emailService = emailService;
     }
 
     /**
@@ -37,10 +37,10 @@ public class GreetingController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Greeting>> getGreetings() {
 
-        logger.info("> getGreetings");
+        logger.info("> allGreetings");
         Collection<Greeting> greetings = greetingService.findAll();
 
-        logger.info("< getGreetings");
+        logger.info("< alltGreetings");
 
         return new ResponseEntity<Collection<Greeting>>(greetings, HttpStatus.OK);
     }
@@ -53,7 +53,7 @@ public class GreetingController {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Greeting> getGreeting(@PathVariable("id") Long id) {
 
-        logger.info("> getGreetings by id");
+        logger.info("> getGreetings by id:{}", id);
         Greeting greeting = greetingService.findOne(id);
 
         if (greeting == null) {
@@ -61,7 +61,7 @@ public class GreetingController {
             return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);
         }
 
-        logger.info("< getGreetings by id");
+        logger.info("< getGreetings by id:{}", id);
         return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
     }
 
@@ -106,13 +106,12 @@ public class GreetingController {
      * Metodo Delete
      */
     @RequestMapping(value = "/api/greetings/{id}",
-            method = RequestMethod.DELETE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
+            method = RequestMethod.DELETE)
     public ResponseEntity<Greeting> deleteGreeting(@PathVariable("id") Long id) {
-        logger.info("> deleteGreetings");
+        logger.info("> deleteGreetings id:{}", id);
         greetingService.delete(id);
 
-        logger.info("< deleteGreetings");
+        logger.info("< deleteGreetings id:{}", id);
         return new ResponseEntity<Greeting>(HttpStatus.NO_CONTENT);
     }
 
