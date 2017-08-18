@@ -4,17 +4,21 @@ import example.model.Greeting;
 
 import java.util.Collection;
 
+/**
+ * @author Paulo Vieira
+ */
+
 public interface GreetingService {
 
-    Collection <Greeting> findAll ();
+    Collection<Greeting> findAll();
 
-    Greeting findOne (Long id);
+    Greeting findOne(Long id);
 
-    Greeting create (Greeting greeting);
+    Greeting create(Greeting greeting);
 
-    Greeting update (Greeting greeting);
+    Greeting update(Greeting greeting);
 
-    void delete (Long id);
+    void delete(Long id);
 
     void evictCache();
 }
