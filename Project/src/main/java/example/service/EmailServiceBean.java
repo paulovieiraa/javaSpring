@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.concurrent.Future;
 
+/**
+ * @author Paulo Vieira
+ */
+
 @Service
 public class EmailServiceBean implements EmailService {
 

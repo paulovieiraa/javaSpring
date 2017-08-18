@@ -10,6 +10,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * @author Paulo Vieira
+ */
+
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableScheduling
@@ -18,11 +22,5 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class Application {
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
-    }
-
-    @Bean
-    public CacheManager cacheManager() {
-        ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager("greetings");
-        return cacheManager;
     }
 }

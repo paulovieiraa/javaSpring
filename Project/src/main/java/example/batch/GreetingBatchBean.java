@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
+/**
+ * @author Paulo Vieira
+ */
+
 @Profile("batch")
 @Component
 public class GreetingBatchBean {

@@ -3,8 +3,6 @@ package example.web.api;
 import example.model.Greeting;
 import example.service.EmailService;
 import example.service.GreetingService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,12 +13,9 @@ import java.util.Collection;
 import java.util.concurrent.Future;
 
 @RestController
-public class GreetingController {
-
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+public class GreetingController extends BaseController{
 
     private final GreetingService greetingService;
-
     private final EmailService emailService;
 
     @Autowired
@@ -42,7 +37,7 @@ public class GreetingController {
 
         logger.info("< alltGreetings");
 
-        return new ResponseEntity<Collection<Greeting>>(greetings, HttpStatus.OK);
+        return new ResponseEntity<>(greetings, HttpStatus.OK);
     }
 
     /**
@@ -58,11 +53,11 @@ public class GreetingController {
 
         if (greeting == null) {
             logger.info("< getGreetings");
-            return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         logger.info("< getGreetings by id:{}", id);
-        return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
+        return new ResponseEntity<>(greeting, HttpStatus.OK);
     }
 
 
@@ -79,7 +74,7 @@ public class GreetingController {
         Greeting saveGreeting = greetingService.create(greeting);
 
         logger.info("< createGreetings");
-        return new ResponseEntity<Greeting>(saveGreeting, HttpStatus.CREATED);
+        return new ResponseEntity<>(saveGreeting, HttpStatus.CREATED);
     }
 
     /**
@@ -95,11 +90,11 @@ public class GreetingController {
 
         if (updatedGreeting == null) {
             logger.info("< updateGreetings");
-            return new ResponseEntity<Greeting>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("< updateGreetings");
-        return new ResponseEntity<Greeting>(updatedGreeting, HttpStatus.OK);
+        return new ResponseEntity<>(updatedGreeting, HttpStatus.OK);
     }
 
     /**
@@ -112,7 +107,7 @@ public class GreetingController {
         greetingService.delete(id);
 
         logger.info("< deleteGreetings id:{}", id);
-        return new ResponseEntity<Greeting>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     /**
@@ -134,7 +129,7 @@ public class GreetingController {
 
             if (greeting == null) {
                 logger.info("< sendGreeting");
-                return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
 
             if (waitForAsyncResult) {
@@ -147,9 +142,9 @@ public class GreetingController {
             }
         } catch (Exception e) {
             logger.error("A problem occurred sending the Greeting.", e);
-            return new ResponseEntity<Greeting>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         logger.info("< sendGreeting");
-        return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
+        return new ResponseEntity<>(greeting, HttpStatus.OK);
     }
 }

@@ -16,6 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
+/**
+ * @author Paulo Vieira
+ */
+
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class GreetingServiceBean implements GreetingService {
