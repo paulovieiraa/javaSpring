@@ -74,7 +74,7 @@ public class GreetingController extends BaseController{
         Greeting saveGreeting = greetingService.create(greeting);
 
         logger.info("< createGreetings");
-        return new ResponseEntity<>(saveGreeting, HttpStatus.CREATED);
+        return new ResponseEntity<Greeting>(saveGreeting, HttpStatus.CREATED);
     }
 
     /**
@@ -90,11 +90,11 @@ public class GreetingController extends BaseController{
 
         if (updatedGreeting == null) {
             logger.info("< updateGreetings");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<Greeting>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("< updateGreetings");
-        return new ResponseEntity<>(updatedGreeting, HttpStatus.OK);
+        return new ResponseEntity<Greeting>(updatedGreeting, HttpStatus.OK);
     }
 
     /**
@@ -107,7 +107,7 @@ public class GreetingController extends BaseController{
         greetingService.delete(id);
 
         logger.info("< deleteGreetings id:{}", id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<Greeting>(HttpStatus.NO_CONTENT);
     }
 
     /**
@@ -129,7 +129,7 @@ public class GreetingController extends BaseController{
 
             if (greeting == null) {
                 logger.info("< sendGreeting");
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);
             }
 
             if (waitForAsyncResult) {
@@ -142,9 +142,9 @@ public class GreetingController extends BaseController{
             }
         } catch (Exception e) {
             logger.error("A problem occurred sending the Greeting.", e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<Greeting>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         logger.info("< sendGreeting");
-        return new ResponseEntity<>(greeting, HttpStatus.OK);
+        return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
     }
 }

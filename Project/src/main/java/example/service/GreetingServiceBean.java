@@ -1,5 +1,6 @@
 package example.service;
 
+import example.exception.ValidationException;
 import example.model.Greeting;
 import example.repository.GreetingRepository;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +43,7 @@ public class GreetingServiceBean implements GreetingService {
     @Override
     public Collection<Greeting> findAll() {
         counterService.increment("method.invoked.greetingServiceBean.findAll");
+
         Collection<Greeting> greetings = repository.findAll();
         return greetings;
     }
@@ -52,8 +55,13 @@ public class GreetingServiceBean implements GreetingService {
     @Cacheable(value = "greetings", key = "#id")
     public Greeting findOne(Long id) {
         counterService.increment("method.invoked.greetingServiceBean.findOne");
+
         Greeting greeting = repository.findOne(id);
-        return greeting;
+        if (greeting == null) {
+            log.info("Greeting Null");
+            throw new ValidationException("Não encontrei o greeting com id " + id + " .");
+        } else
+            return greeting;
     }
 
     /**
@@ -64,10 +72,12 @@ public class GreetingServiceBean implements GreetingService {
     @CachePut(value = "greetings", key = "#result.id")
     public Greeting create(Greeting greeting) {
         counterService.increment("method.invoked.greetingServiceBean.create");
+
         if (greeting.getId() != null) {
-            return null;
+            log.info("Greeting não está null");
+            throw new ValidationException("Algo deu errado. O greeting id está diferente de Null.");
         }
-        //create and update are the same.
+
         Greeting saveGreeting = repository.save(greeting);
 
         /*A annotation @Transactional, realiza inserções no banco de dados. Quando elas falharem, pode se ocorrer um rollBack*/
@@ -88,10 +98,12 @@ public class GreetingServiceBean implements GreetingService {
     @CachePut(value = "greetings", key = "#greeting.id")
     public Greeting update(Greeting greeting) {
         counterService.increment("method.invoked.greetingServiceBean.update");
+
         Greeting greetingPersisted = findOne(greeting.getId());
 
         if (greetingPersisted == null) {
-            return null;
+            log.info("Greeting Null");
+            throw new ValidationException("Greeting Null");
         }
 
         Greeting updatedGreeting = repository.save(greeting);
@@ -106,7 +118,13 @@ public class GreetingServiceBean implements GreetingService {
     @CacheEvict(value = "greetings", key = "#id")
     public void delete(Long id) {
         counterService.increment("method.invoked.greetingServiceBean.delete");
-        repository.delete(id);
+
+        try {
+            repository.delete(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ValidationException("Id " + id + " não existe.");
+        }
+        throw new RuntimeException("Outra excecao.");
     }
 
     /**
