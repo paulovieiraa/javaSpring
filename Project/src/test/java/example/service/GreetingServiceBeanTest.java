@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.springframework.boot.actuate.metrics.CounterService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,11 +22,13 @@ public class GreetingServiceBeanTest extends AbstractTest {
 
     @Mock
     private GreetingRepository repository;
+    @Mock
+    private CounterService counterService;
 
 
     @Before
     public void setUp() throws Exception {
-        service = new GreetingServiceBean(repository);
+        service = new GreetingServiceBean(repository, counterService);
 
         list = new ArrayList<>();
         Greeting greeting = new Greeting();
