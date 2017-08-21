@@ -1,0 +1,32 @@
+# Compiled class file
+*.class
+
+*.pb
+
+*jacoco.exec
+
+# Log file
+*.log
+
+node_modules
+*.iml
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Ant Working Directory
+.sonar/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+/.idea/sonarlint/issuestore/
+
+# Mac
+.DS_Store

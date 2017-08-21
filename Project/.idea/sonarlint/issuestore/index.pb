@@ -31,3 +31,7 @@ i
 9src/test/java/example/web/api/GreetingControllerTest.java,6/9/698419e00cde098f67c13dfa273af086124d23d3
 r
 Bsrc/main/java/example/actuator/health/GreetingHealthIndicator.java,d/a/daf5c11d608badb8609f58737352df2542752f17
+h
+8src/main/java/example/exception/ValidationException.java,e/a/ea6d80df8569cb1dc5ef22a88746234c31349997
+a
+1src/main/java/example/web/api/BaseController.java,9/2/9234ab9cbd441c4f59c3849b5aae32392773e962
