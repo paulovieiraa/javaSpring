@@ -26,6 +26,7 @@ node_modules
 .idea/
 *.iml
 *.iws
+/.idea/workspace.xml
 /.idea/sonarlint/issuestore/
 
 # Mac
