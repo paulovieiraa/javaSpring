@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7f9ed8a-432e-4d59-bb05-4f04244ace03" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/example/web/api/GreetingController.java" afterPath="$PROJECT_DIR$/src/main/java/example/web/api/GreetingController.java" />
-    </list>
+    <list default="true" id="c7f9ed8a-432e-4d59-bb05-4f04244ace03" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +26,8 @@
       <file leaf-file-name="GreetingController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/example/web/api/GreetingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="913">
-              <caret line="96" column="68" lean-forward="true" selection-start-line="96" selection-start-column="68" selection-end-line="96" selection-end-column="68" />
+            <state relative-caret-position="301">
+              <caret line="59" column="61" lean-forward="true" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
               <folding>
                 <element signature="e#3662#3811#0" expanded="false" />
                 <element signature="method#sendGreeting#0;class#GreetingController#0" expanded="false" />
@@ -604,7 +600,7 @@
       <workItem from="1502989466670" duration="788000" />
       <workItem from="1502993430817" duration="13194000" />
       <workItem from="1503060825128" duration="16733000" />
-      <workItem from="1503338190712" duration="1883000" />
+      <workItem from="1503338190712" duration="2531000" />
     </task>
     <servers />
   </component>
@@ -641,7 +637,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52703000" />
+    <option name="totallyTimeSpent" value="53351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1279" y="25" width="1922" height="1056" extended-state="6" />
@@ -1072,8 +1068,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/example/web/api/GreetingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="913">
-          <caret line="96" column="68" lean-forward="true" selection-start-line="96" selection-start-column="68" selection-end-line="96" selection-end-column="68" />
+        <state relative-caret-position="301">
+          <caret line="59" column="61" lean-forward="true" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
           <folding>
             <element signature="e#3662#3811#0" expanded="false" />
             <element signature="method#sendGreeting#0;class#GreetingController#0" expanded="false" />

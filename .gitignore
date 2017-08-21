@@ -1,8 +1,13 @@
+# Compiled class file
 *.class
+
 *.pb
 
 *jacoco.exec
+
+# Log file
 *.log
+
 node_modules
 *.iml
 
@@ -19,4 +24,9 @@ node_modules
 
 # IntelliJ IDEA
 .idea/
+*.iml
+*.iws
 /.idea/sonarlint/issuestore/
+
+# Mac
+.DS_Store
