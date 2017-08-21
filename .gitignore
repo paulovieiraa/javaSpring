@@ -13,3 +13,9 @@ node_modules
 *.jar
 *.war
 *.ear
+
+# Ant Working Directory
+.sonar/
+
+# IntelliJ IDEA
+.idea/

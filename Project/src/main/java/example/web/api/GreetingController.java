@@ -74,7 +74,7 @@ public class GreetingController extends BaseController{
         Greeting saveGreeting = greetingService.create(greeting);
 
         logger.info("< createGreetings");
-        return new ResponseEntity<Greeting>(saveGreeting, HttpStatus.CREATED);
+        return new ResponseEntity<>(saveGreeting, HttpStatus.CREATED);
     }
 
     /**
@@ -90,11 +90,11 @@ public class GreetingController extends BaseController{
 
         if (updatedGreeting == null) {
             logger.info("< updateGreetings");
-            return new ResponseEntity<Greeting>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         logger.info("< updateGreetings");
-        return new ResponseEntity<Greeting>(updatedGreeting, HttpStatus.OK);
+        return new ResponseEntity<>(updatedGreeting, HttpStatus.OK);
     }
 
     /**
@@ -107,7 +107,7 @@ public class GreetingController extends BaseController{
         greetingService.delete(id);
 
         logger.info("< deleteGreetings id:{}", id);
-        return new ResponseEntity<Greeting>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     /**
