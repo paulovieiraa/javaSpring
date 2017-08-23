@@ -35,3 +35,6 @@ h
 8src/main/java/example/exception/ValidationException.java,e/a/ea6d80df8569cb1dc5ef22a88746234c31349997
 a
 1src/main/java/example/web/api/BaseController.java,9/2/9234ab9cbd441c4f59c3849b5aae32392773e962
+:
+
+spring.iml,8/8/88fabbb1528ff410395337062b76d80642172732
