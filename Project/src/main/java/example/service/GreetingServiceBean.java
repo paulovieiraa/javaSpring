@@ -80,12 +80,14 @@ public class GreetingServiceBean implements GreetingService {
 
         Greeting saveGreeting = repository.save(greeting);
 
+        if (greeting.getId() != null) {
         /*A annotation @Transactional, realiza inserções no banco de dados. Quando elas falharem, pode se ocorrer um rollBack*/
-        if (saveGreeting.getId() == 4L) {
-            throw new RuntimeException("\n\n*****************************" +
-                    "\nRoll me back !!!!! " +
-                    "\nExemplo de erro com a annotation @Transactional." +
-                    "\n*****************************");
+            if (saveGreeting.getId() == 4L) {
+                throw new RuntimeException("\n\n*****************************" +
+                        "\nRoll me back !!!!! " +
+                        "\nExemplo de erro com a annotation @Transactional." +
+                        "\n*****************************");
+            }
         }
         return saveGreeting;
     }
@@ -123,8 +125,9 @@ public class GreetingServiceBean implements GreetingService {
             repository.delete(id);
         } catch (EmptyResultDataAccessException e) {
             throw new ValidationException("Id " + id + " não existe.");
+        } catch (Exception e) {
+            throw new RuntimeException("Outra excecao.");
         }
-        throw new RuntimeException("Outra excecao.");
     }
 
     /**
