@@ -2,6 +2,7 @@ example/batch/GreetingBatchBean.class
 example/web/api/GreetingController.class
 example/service/EmailService.class
 example/service/GreetingServiceBean.class
+example/exception/ValidationException.class
 example/web/ExceptionAttributes.class
 example/web/api/BaseController.class
 example/util/AsyncResponse.class

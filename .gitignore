@@ -24,9 +24,17 @@ node_modules
 
 # IntelliJ IDEA
 .idea/
+.idea
+target
+.settings/
+.project
+=======
+target/
 *.iml
 *.iws
 /.idea/workspace.xml
+.idea/sonarlint/
+.idea/sonarlint
 /.idea/sonarlint/issuestore/
 
 # Mac

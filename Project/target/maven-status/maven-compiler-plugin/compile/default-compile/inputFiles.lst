@@ -5,6 +5,7 @@
 /home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/service/GreetingService.java
 /home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/service/EmailService.java
 /home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/util/AsyncResponse.java
+/home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/exception/ValidationException.java
 /home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/web/DefaultExceptionAttributes.java
 /home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/actuator/health/GreetingHealthIndicator.java
 /home/paulo/Documentos/ZUP/Git/Study - Spring/javaSpring/Project/src/main/java/example/service/GreetingServiceBean.java

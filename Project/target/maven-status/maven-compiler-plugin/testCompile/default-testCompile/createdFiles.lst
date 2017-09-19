@@ -1,4 +1,5 @@
 example/AbstractTest.class
 example/service/GreetingServiceBeanTest.class
 example/AbstractControllerTest.class
+example/web/api/GreetingControllerITest.class
 example/web/api/GreetingControllerTest.class
