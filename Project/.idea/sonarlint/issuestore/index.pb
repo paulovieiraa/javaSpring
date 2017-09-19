@@ -38,3 +38,7 @@ a
 :
 
 spring.iml,8/8/88fabbb1528ff410395337062b76d80642172732
+t
+Dsrc/test/java/example/web/api/GreetingControllerIntegrationTest.java,c/1/c15d6e72cc6e4be183890a3ce4e100308d40d995
+L
+src/main/asciidoc/index.adoc,8/1/81a8fc5957b5f979787a7a3dac0961818b5ba381

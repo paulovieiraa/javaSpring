@@ -1,5 +1,5 @@
 
- %squid:RedundantThrowsDeclarationCheck"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Þýÿÿÿÿ
 lsquid:UselessImportCheck"CRemove this unused import 'org.springframework.cache.CacheManager'.(÷ë¿Û8Ô–’¯ß+
 qsquid:UselessImportCheck"HRemove this unused import 'org.springframework.context.annotation.Bean'.(‚î‰Þ8Ô–’¯ß+
+ %squid:RedundantThrowsDeclarationCheck"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Þýÿÿÿÿ
 ‰squid:UselessImportCheck"[Remove this unused import 'org.springframework.cache.concurrent.ConcurrentMapCacheManager'.(äéÃÕÿÿÿÿÿ8Ô–’¯ß+
