@@ -46,7 +46,7 @@ public class GreetingControllerIntegrationTest extends AbstractControllerTest {
         MockHttpServletResponse content = result.andReturn().getResponse();
         logger.info("\nContent: " + content.getContentAsString());
 
-        result.andExpect(jsonPath("$.id", is(3))).andExpect(jsonPath("$.text", is("Bonjour le monde!")));
+        result.andExpect(jsonPath("$.id", is(10))).andExpect(jsonPath("$.text", is("Bonjour le monde!")));
     }
 
     @Test
