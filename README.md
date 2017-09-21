@@ -1,1 +1,1 @@
-Estudo relacionado a Spring Boot project.
+Projeto utilizando >> Spring Boot + Cucumber + Spring Rest Docs.

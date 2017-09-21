@@ -82,7 +82,7 @@ public class GreetingServiceBean implements GreetingService {
 
         if (greeting.getId() != null) {
         /*A annotation @Transactional, realiza inserções no banco de dados. Quando elas falharem, pode se ocorrer um rollBack*/
-            if (saveGreeting.getId() == 6L) {
+            if (saveGreeting.getId() == 13L) {
                 throw new RuntimeException("\n\n*****************************" +
                         "\nRoll me back !!!!! " +
                         "\nExemplo de erro com a annotation @Transactional." +
