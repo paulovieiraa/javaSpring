@@ -67,33 +67,33 @@ public class MyStepdefs extends BaseStepsCucumber {
         assertNotNull(greeting);
     }
 
-//    //update
-//    @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\" com o id \"([^\"]*)\", inserindo o \"([^\"]*)\" e alterando o  \"([^\"]*)\" do greeting$")
-//    public void chamarmosABASE_URLConcatenadoComAUrlComOIdInserindoOEAlterandoODoGreeting(String string, String id, String numberGreeting, String text) throws Throwable {
-//        String url = BASE_URL.concat(string).concat(id);
-//
-//        String body = String.format("{\n" +
-//                "  \"id\": \"%s\",\n" +
-//                "  \"text\": \"%s\"\n" +
-//                "}", numberGreeting, text);
-//
-//        executePut(url, body);
-//    }
-//
-//    @Entao("^o serviço devera retonar HTTP-STATUS (\\d+), listando o greeting atualizado$")
-//    public void oServiçoDeveraRetonarHTTPSTATUSListandoOGreetingAtualizado(int status) throws Throwable {
-//        Greeting greeting = latestResponse.getBodyAsObject(Greeting.class);
-//        int responseHttpStatus = latestResponse.getTheResponse().getRawStatusCode();
-//
-//        assertEquals(status, responseHttpStatus);
-//        assertNotNull(greeting);
-//    }
+    //update
+    @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\" com o id \"([^\"]*)\", inserindo o \"([^\"]*)\" e alterando o  \"([^\"]*)\" do greeting$")
+    public void chamarmosABASE_URLConcatenadoComAUrlComOIdInserindoOEAlterandoODoGreeting(String string, String id, String numberGreeting, String text) throws Throwable {
+        String url = BASE_URL.concat(string).concat(id);
 
-//    //delete
-//    @Entao("^o serviço devera retonar HTTP-STATUS (\\d+)$")
-//    public void oServiçoDeveraRetonarHTTPSTATUS(int status) throws Throwable {
-//        int responseStatus = latestResponse.getTheResponse().getRawStatusCode();
-//        assertEquals(status, responseStatus);
-//    }
+        String body = String.format("{\n" +
+                "  \"id\": \"%s\",\n" +
+                "  \"text\": \"%s\"\n" +
+                "}", numberGreeting, text);
+
+        executePut(url, body);
+    }
+
+    @Entao("^o serviço devera retonar HTTP-STATUS (\\d+), listando o greeting atualizado$")
+    public void oServiçoDeveraRetonarHTTPSTATUSListandoOGreetingAtualizado(int status) throws Throwable {
+        Greeting greeting = latestResponse.getBodyAsObject(Greeting.class);
+        int responseHttpStatus = latestResponse.getTheResponse().getRawStatusCode();
+
+        assertEquals(status, responseHttpStatus);
+        assertNotNull(greeting);
+    }
+
+    //delete
+    @Entao("^o serviço devera retonar HTTP-STATUS (\\d+)$")
+    public void oServiçoDeveraRetonarHTTPSTATUS(int status) throws Throwable {
+        int responseStatus = latestResponse.getTheResponse().getRawStatusCode();
+        assertEquals(status, responseStatus);
+    }
 
 }

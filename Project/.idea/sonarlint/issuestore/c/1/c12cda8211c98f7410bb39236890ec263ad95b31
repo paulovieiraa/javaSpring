@@ -1,8 +1,8 @@
 
-ˆsquid:S1488"gImmediately return this expression instead of assigning it to the temporary variable "updatedGreeting".(÷ôù“şÿÿÿÿ8¨ûšûà+
-Ksquid:S1066"/Merge this if statement with the enclosing one.(ÓÔŒ°8¨ûšûà+
-¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(õËßùÿÿÿÿ8¨ûšûà+
+Psquid:S1066"/Merge this if statement with the enclosing one.(èÇóÉûÿÿÿÿ8¨ûšûà+
+csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(“†Š•8¨ûšûà+
 jsquid:S1192"NDefine a constant instead of duplicating this literal "Greeting Null" 3 times.(€»Õİ8¨ûšûà+
 ‚squid:S1488"aImmediately return this expression instead of assigning it to the temporary variable "greetings".(®ñ´ùÿÿÿÿ8¨ûšûà+
+¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(õËßùÿÿÿÿ8¨ûšûà+
 hsquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(–ìşİÿÿÿÿÿ8¨ûšûà+
-csquid:S00112"FDefine and throw a dedicated exception instead of using a generic one.(“†Š•8¨ûšûà+
+ˆsquid:S1488"gImmediately return this expression instead of assigning it to the temporary variable "updatedGreeting".(÷ôù“şÿÿÿÿ8¨ûšûà+
