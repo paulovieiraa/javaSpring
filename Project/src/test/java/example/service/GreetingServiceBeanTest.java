@@ -5,9 +5,7 @@ import example.exception.ValidationException;
 import example.model.Greeting;
 import example.repository.GreetingRepository;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.mockito.Mock;
 import org.springframework.boot.actuate.metrics.CounterService;
 
@@ -16,11 +14,14 @@ import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.notNull;
 import static org.mockito.Mockito.when;
 
 public class GreetingServiceBeanTest extends AbstractTest {
+
+    /**
+     * Testes unitarios
+     */
 
     private GreetingService service;
     private List<Greeting> list;
@@ -31,10 +32,6 @@ public class GreetingServiceBeanTest extends AbstractTest {
     @Mock
     private CounterService counterService;
     private Greeting returnMethod;
-
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
 
     @Before
     public void setUp() throws Exception {
@@ -91,17 +88,18 @@ public class GreetingServiceBeanTest extends AbstractTest {
 
         service.create(greeting);
     }
+
     @Test
-    public void update (){
+    public void update() {
         when(repository.findOne(notNull(Long.class))).thenReturn(greeting);
         when(repository.save(greeting)).thenReturn(greeting);
 
         returnMethod = service.update(greeting);
         assertNotNull(repository);
     }
-    @Test
-    public void delete (){
 
+    @Test
+    public void delete() {
         service.delete(1L);
     }
 }

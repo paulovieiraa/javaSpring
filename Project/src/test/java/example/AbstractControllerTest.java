@@ -10,7 +10,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import java.io.IOException;
 
-
 public abstract class AbstractControllerTest extends AbstractTest {
 
     protected MockMvc mvc;

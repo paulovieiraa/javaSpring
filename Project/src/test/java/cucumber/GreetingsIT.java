@@ -13,6 +13,6 @@ import org.junit.runner.RunWith;
 public class GreetingsIT {
 
     /**
-     * Start - testes Cucumber
+     * Start - Testes Cucumber
      * */
 }

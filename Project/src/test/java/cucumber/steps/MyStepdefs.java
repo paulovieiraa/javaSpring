@@ -12,6 +12,8 @@ import static org.junit.Assert.assertNotNull;
 
 public class MyStepdefs extends BaseStepsCucumber {
 
+    /**Tratamento das features*/
+
     //findAll
     @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\"$")
     public void chamarmosABASE_URLConcatenadoComAUrl(String string) throws Throwable {
