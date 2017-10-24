@@ -5,3 +5,4 @@ Projeto utilizando:
 - Cucumber
 - JUnit
 - Spring Rest Docs.
+- Integration Tests
