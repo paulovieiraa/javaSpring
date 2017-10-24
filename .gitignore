@@ -36,6 +36,7 @@ target/
 .idea/sonarlint/
 .idea/sonarlint
 /.idea/sonarlint/issuestore/
+.idea/workspace.xml
 
 # Mac
 .DS_Store
