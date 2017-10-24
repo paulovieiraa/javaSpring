@@ -14,6 +14,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class GreetingControllerIntegrationTest extends AbstractControllerTest {
 
+    /**Testes integrados*/
+
     private String stringHelper;
 
     @Before
