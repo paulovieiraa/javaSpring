@@ -1,1 +1,3 @@
-Projeto utilizando >> Spring Boot + Cucumber + Spring Rest Docs.
+== Estudos 
+
+Projeto utilizando >> Spring Boot + Cucumber + JUnit + Spring Rest Docs.
