@@ -16,7 +16,6 @@ public class BaseController {
 
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleException(Exception exception, HttpServletRequest request) {
         logger.error("> handleException");

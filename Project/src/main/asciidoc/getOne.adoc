@@ -1,0 +1,17 @@
+= Greetings
+
+== Get one
+
+=== Sucesso
+
+.Request
+include::{snippets}/greeting-sucess/http-request.adoc[]
+
+.Parameters
+include::{snippets}/greeting-sucess/path-parameters.adoc[]
+
+.Response
+include::{snippets}/greeting-sucess/http-response.adoc[]
+
+.Fields
+include::{snippets}/greeting-sucess/response-fields.adoc[]

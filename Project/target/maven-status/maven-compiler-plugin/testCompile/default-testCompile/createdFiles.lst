@@ -1,5 +1,12 @@
-example/AbstractTest.class
-example/service/GreetingServiceBeanTest.class
-example/AbstractControllerTest.class
-example/web/api/GreetingControllerIntegrationTest.class
+cucumber/GreetingsIT.class
+cucumber/helper/ResponseResultErrorHandler.class
+cucumber/helper/ResponseResults.class
 example/web/api/GreetingControllerTest.class
+example/base/DefaultBaseServiceTest.class
+example/util/MockMvcRequestBuilder.class
+cucumber/BaseStepsCucumber.class
+cucumber/steps/MyStepdefs.class
+example/service/GreetingServiceBeanTestDefault.class
+cucumber/helper/HeaderSettingRequestCallback.class
+example/TestApplication.class
+example/base/DefaultDefaultBaseControllerTest.class
