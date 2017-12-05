@@ -13,3 +13,5 @@ example/service/GreetingService.class
 example/service/EmailServiceBean.class
 example/model/Greeting.class
 example/repository/GreetingRepository.class
+example/util/Config.class
+example/util/JsonHelper.class

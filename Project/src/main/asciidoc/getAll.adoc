@@ -1,0 +1,17 @@
+= Greetings
+
+== Get all
+
+=== Sucesso
+
+.Request
+include::{snippets}/greeting-all-sucess/http-request.adoc[]
+
+.Parameters
+include::{snippets}/greeting-all-sucess/path-parameters.adoc[]
+
+.Response
+include::{snippets}/greeting-all-sucess/http-response.adoc[]
+
+.Fields
+include::{snippets}/greeting-all-sucess/response-fields.adoc[]

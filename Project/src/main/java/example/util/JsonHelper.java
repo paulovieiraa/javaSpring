@@ -5,12 +5,16 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import example.exception.ValidationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
 
 public class JsonHelper {
     private static ObjectMapper mapper = init();
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonHelper.class);
 
     private static final String JSON_PARSE_ERROR = "Erro no parse do json: ";
 
@@ -39,7 +43,7 @@ public class JsonHelper {
 
     public static <T> List<T> jsonToList(String json, Class<T> clazz) {
         try {
-            return mapper.readValue(json, TypeFactory.defaultInstance().constructCollectionType(List.class, clazz) );
+            return mapper.readValue(json, TypeFactory.defaultInstance().constructCollectionType(List.class, clazz));
         } catch (IOException e) {
             throw new ValidationException(JSON_PARSE_ERROR + e.getMessage(), e);
         }
