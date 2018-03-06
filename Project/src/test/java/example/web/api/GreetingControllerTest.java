@@ -42,23 +42,19 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
     public void setUp() throws Exception {
         super.setUp();
 
+        number = 1L;
+
         greetings = new ArrayList<>();
 
         greeting = new Greeting();
-        greeting.setId(1L);
+        greeting.setId(number);
         greeting.setText("Hello");
 
         greetings.add(greeting);
 
-        number = 1L;
-
         responseEntity = new ResponseEntity(HttpStatus.OK);
 
         addHeader("X-OtherId", "SomeOtherId");
-    }
-
-    @Test
-    public void A() {
     }
 
     @Test
@@ -75,17 +71,4 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
                                 fieldWithPath("[0].text").description("texto do greeting")
                         )));
     }
-
-//    @Test
-//    public void getOne() throws Exception {
-//        given(greetingService.findAll()).willReturn(greetings);
-//
-//        get("/api/greetings/{id}", status().isOk(), greeting, number)
-//                .andDo(MockMvcRestDocumentation.document("greeting-sucess",
-//                        preprocessRequest(prettyPrint()),
-//                        preprocessResponse(prettyPrint()),
-//                        pathParameters(parameterWithName("id").description("Id a ser validado")),
-//                        responseFields(fieldWithPath("code").description("Codigo de sucesso")
-//                        )));
-//    }
 }
