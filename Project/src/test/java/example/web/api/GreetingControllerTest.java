@@ -1,24 +1,6 @@
 package example.web.api;
 
 import example.base.DefaultDefaultBaseControllerTest;
-
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.notNull;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
-import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
-import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
-import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.*;
-
 import example.model.Greeting;
 import example.service.EmailService;
 import example.service.GreetingService;
@@ -29,7 +11,15 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
-import org.springframework.restdocs.payload.RequestFieldsSnippet;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static org.mockito.BDDMockito.given;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
+import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @WebMvcTest(GreetingController.class)
@@ -53,9 +43,11 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
         super.setUp();
 
         greetings = new ArrayList<>();
+
         greeting = new Greeting();
         greeting.setId(1L);
         greeting.setText("Hello");
+
         greetings.add(greeting);
 
         number = 1L;
@@ -66,22 +58,24 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
     }
 
     @Test
-    public void A (){
+    public void A() {
     }
 
-//    @Test
-//    public void getAll() throws Exception {
-//        given(greetingService.findAll()).willReturn(greetings);
-//
-//
-//        get("/api/greetings", status().isOk(), greetings)
-//                .andDo(MockMvcRestDocumentation.document("greeting-all-sucess",
-//                        preprocessRequest(prettyPrint()),
-//                        preprocessResponse(prettyPrint()),
-//                        responseFields(fieldWithPath("code").description("Codigo de sucesso")
-//                        )));
-//    }
-//
+    @Test
+    public void getAll() throws Exception {
+        given(greetingService.findAll()).willReturn(greetings);
+
+        get("/api/greetings", status().isOk(), greetings)
+                .andDo(MockMvcRestDocumentation.document("greetings-all-sucess",
+                        preprocessRequest(prettyPrint()),
+                        preprocessResponse(prettyPrint()),
+                        responseFields(
+                                fieldWithPath("[]").description("Lista de greetings"),
+                                fieldWithPath("[0].id").description("id de greeting"),
+                                fieldWithPath("[0].text").description("texto do greeting")
+                        )));
+    }
+
 //    @Test
 //    public void getOne() throws Exception {
 //        given(greetingService.findAll()).willReturn(greetings);

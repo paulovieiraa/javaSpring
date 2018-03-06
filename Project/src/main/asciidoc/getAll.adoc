@@ -5,13 +5,13 @@
 === Sucesso
 
 .Request
-include::{snippets}/greeting-all-sucess/http-request.adoc[]
+include::{snippets}/greetings-all-sucess/http-request.adoc[]
 
 .Parameters
-include::{snippets}/greeting-all-sucess/path-parameters.adoc[]
+include::{snippets}/greetings-all-sucess/path-parameters.adoc[]
 
 .Response
-include::{snippets}/greeting-all-sucess/http-response.adoc[]
+include::{snippets}/greetings-all-sucess/http-response.adoc[]
 
 .Fields
-include::{snippets}/greeting-all-sucess/response-fields.adoc[]
+include::{snippets}/greetings-all-sucess/response-fields.adoc[]
