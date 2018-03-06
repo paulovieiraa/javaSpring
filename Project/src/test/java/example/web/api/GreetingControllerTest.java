@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
@@ -34,7 +34,7 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
     private EmailService emailService;
 
     private ResponseEntity responseEntity;
-    private Collection<Greeting> greetings;
+    private List<Greeting> greetings;
     private Greeting greeting;
     private Long number;
 
@@ -53,22 +53,22 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
         greetings.add(greeting);
 
         responseEntity = new ResponseEntity(HttpStatus.OK);
-
-        addHeader("X-OtherId", "SomeOtherId");
     }
 
-    @Test
+//    @Test
     public void getAll() throws Exception {
+        addHeader("X-OtherId", "SomeOtherId");
+
         given(greetingService.findAll()).willReturn(greetings);
 
-        get("/api/greetings", status().isOk(), greetings)
+        get("/api/greetings", status().isOk(), new ResponseEntity<>(greetings, HttpStatus.OK))
                 .andDo(MockMvcRestDocumentation.document("greetings-all-sucess",
                         preprocessRequest(prettyPrint()),
                         preprocessResponse(prettyPrint()),
                         responseFields(
-                                fieldWithPath("[]").description("Lista de greetings"),
-                                fieldWithPath("[0].id").description("id de greeting"),
-                                fieldWithPath("[0].text").description("texto do greeting")
+                                fieldWithPath("greetings").description("Lista de greetings"),
+                                fieldWithPath("greetings[0].id").description("id de greeting"),
+                                fieldWithPath("greetings[0].text").description("texto do greeting")
                         )));
     }
 }
