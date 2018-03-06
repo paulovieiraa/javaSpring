@@ -33,10 +33,7 @@ local.properties
 .buildpath
 
 # sbteclipse plugin
-.target/**/surefire-reports/
-/target/surefire-reports/
-.target/
-.target
+/target/
 
 # Tern plugin
 .tern-project
