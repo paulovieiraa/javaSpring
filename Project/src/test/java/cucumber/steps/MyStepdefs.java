@@ -14,7 +14,8 @@ public class MyStepdefs extends BaseStepsCucumber {
 
     /**Tratamento das features*/
 
-    //findAll
+    /*findAll*/
+
     @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\"$")
     public void chamarmosABASE_URLConcatenadoComAUrl(String string) throws Throwable {
         String url = BASE_URL.concat(string);
@@ -30,7 +31,7 @@ public class MyStepdefs extends BaseStepsCucumber {
         assertNotNull(greetingsList);
     }
 
-    //findOne
+    /*findOne*/
     @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\" concatenando com o id \"([^\"]*)\" do greeting selecionado$")
     public void chamarmosABASE_URLConcatenadoComAUrlConcatenandoComOIdDoGreetingSelecionado(String string, String numberGreeting) throws Throwable {
         String url = BASE_URL.concat(string).concat(numberGreeting);
@@ -47,7 +48,7 @@ public class MyStepdefs extends BaseStepsCucumber {
         assertNotNull(greeting.getText());
     }
 
-    //post
+    /*post*/
     @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\", inserindo o texto \"([^\"]*)\"$")
     public void chamarmosABASE_URLConcatenadoComAUrlInserindoOTexto(String string, String text) throws Throwable {
         String url = BASE_URL.concat(string);
@@ -69,7 +70,7 @@ public class MyStepdefs extends BaseStepsCucumber {
         assertNotNull(greeting);
     }
 
-    //update
+    /*update*/
     @Quando("^chamarmos a BASE_URL concatenado com a url \"([^\"]*)\" com o id \"([^\"]*)\", inserindo o \"([^\"]*)\" e alterando o  \"([^\"]*)\" do greeting$")
     public void chamarmosABASE_URLConcatenadoComAUrlComOIdInserindoOEAlterandoODoGreeting(String string, String id, String numberGreeting, String text) throws Throwable {
         String url = BASE_URL.concat(string).concat(id);
@@ -91,7 +92,7 @@ public class MyStepdefs extends BaseStepsCucumber {
         assertNotNull(greeting);
     }
 
-    //delete
+    /*delete*/
     @Entao("^o serviço devera retonar HTTP-STATUS (\\d+)$")
     public void oServiçoDeveraRetonarHTTPSTATUS(int status) throws Throwable {
         int responseStatus = latestResponse.getTheResponse().getRawStatusCode();

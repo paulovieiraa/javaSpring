@@ -22,14 +22,15 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
+/*Test Controllers*/
 @ContextConfiguration(classes = TestApplication.class)
 public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServiceTest {
 
     @Autowired
     private WebApplicationContext context;
 
-    @MockBean
-    BaseController controllerExceptionHandler;
+//    @MockBean
+//    BaseController controllerExceptionHandler;
 
     @Rule
     public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation("target/generated-snippets");
@@ -43,8 +44,8 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .apply(MockMvcRestDocumentation.documentationConfiguration(restDocumentation).uris()
                         .withScheme("https")
-                        .withPort(8080)
-                        .withHost("localhost:"))
+                        .withHost("localhost:")
+                        .withPort(8080))
                 .build();
 
         httpHeaders = new HttpHeaders();
@@ -54,7 +55,9 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         httpHeaders.add("Accept", "application/json");
     }
 
-    /*Get*/
+    /**
+     * Get
+     */
     public ResultActions get(String urlTemplate, ResultMatcher resultMatcher) throws Exception {
         return get(urlTemplate, resultMatcher, null);
     }
@@ -76,7 +79,9 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         return resultActions;
     }
 
-    /*Post*/
+    /**
+     * Post
+     */
     public ResultActions post(String urlTemplate, ResultMatcher resultMatcher, Object result) throws Exception {
         return post(urlTemplate, resultMatcher, null, result);
     }
@@ -98,7 +103,9 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         return resultActions;
     }
 
-    /*Put*/
+    /**
+     * Put
+     */
 
     public ResultActions put(String urlTemplate, ResultMatcher resultMatcher, Object body) throws Exception {
         return put(urlTemplate, resultMatcher, body, null);
@@ -121,7 +128,9 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         return resultActions;
     }
 
-    /*Delete*/
+    /**
+     * Delete
+     */
 
     public ResultActions delete(String urlTemplate, ResultMatcher resultMatcher) throws Exception {
         return delete(urlTemplate, resultMatcher, null);
@@ -144,6 +153,9 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         return resultActions;
     }
 
+    /**
+     * expected
+     */
     private void expectDefault(ResultMatcher resultMatcher, Object result, ResultActions resultActions) throws Exception {
         if (resultMatcher != null) {
             resultActions.andExpect(resultMatcher);
