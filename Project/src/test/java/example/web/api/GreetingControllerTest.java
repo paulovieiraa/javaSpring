@@ -5,7 +5,6 @@ import example.model.Greeting;
 import example.service.EmailService;
 import example.service.GreetingService;
 import org.junit.Before;
-import org.junit.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
@@ -13,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
@@ -34,7 +33,7 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
     private EmailService emailService;
 
     private ResponseEntity responseEntity;
-    private List<Greeting> greetings;
+    private Collection<Greeting> greetings;
     private Greeting greeting;
     private Long number;
 
@@ -55,7 +54,7 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
         responseEntity = new ResponseEntity(HttpStatus.OK);
     }
 
-//    @Test
+    //    @Test
     public void getAll() throws Exception {
         addHeader("X-OtherId", "SomeOtherId");
 
