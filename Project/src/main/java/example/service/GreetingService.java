@@ -3,6 +3,7 @@ package example.service;
 import example.model.Greeting;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * @author Paulo Vieira

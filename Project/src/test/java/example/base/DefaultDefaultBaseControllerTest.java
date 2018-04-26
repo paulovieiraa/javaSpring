@@ -44,8 +44,9 @@ public abstract class DefaultDefaultBaseControllerTest extends DefaultBaseServic
         this.mockMvc = MockMvcBuilders.webAppContextSetup(context)
                 .apply(MockMvcRestDocumentation.documentationConfiguration(restDocumentation).uris()
                         .withScheme("https")
-                        .withHost("localhost:")
-                        .withPort(8080))
+                        .withPort(8080)
+                        .withHost("localhost://")
+                )
                 .build();
 
         httpHeaders = new HttpHeaders();
