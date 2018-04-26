@@ -7,8 +7,8 @@
 .Request
 include::{snippets}/greetings-all-sucess/http-request.adoc[]
 
-.Parameters
-include::{snippets}/greetings-all-sucess/path-parameters.adoc[]
+//.Parameters
+//include::{snippets}/greetings-all-sucess/path-parameters.adoc[]
 
 .Response
 include::{snippets}/greetings-all-sucess/http-response.adoc[]

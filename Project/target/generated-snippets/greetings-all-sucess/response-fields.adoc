@@ -1,0 +1,16 @@
+|===
+|Path|Type|Description
+
+|`[]`
+|`Array`
+|Lista de greetings
+
+|`[].id`
+|`Number`
+|id do greeting
+
+|`[].text`
+|`String`
+|texto do greeting
+
+|===

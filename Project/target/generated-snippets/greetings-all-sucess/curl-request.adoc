@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/api/greetings' -i -H 'X-Application-Key: SomeAppKey' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'X-OtherId: SomeOtherId'
+----

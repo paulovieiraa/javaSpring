@@ -28,15 +28,11 @@ import example.service.GreetingService;
 @WebMvcTest(GreetingController.class)
 public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
 
-    //TODO TERMINAR DOC DO CONTROLLER
-
     @MockBean
     private GreetingService greetingService;
-
     @MockBean
     private EmailService emailService;
 
-    private ResponseEntity responseEntity;
     private Collection<Greeting> greetings;
 
     @Before
@@ -50,8 +46,6 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
         greeting.setText("Hello");
 
         greetings.add(greeting);
-
-        responseEntity = new ResponseEntity(HttpStatus.OK);
     }
 
     @Test
@@ -65,9 +59,9 @@ public class GreetingControllerTest extends DefaultDefaultBaseControllerTest {
                         preprocessRequest(prettyPrint()),
                         preprocessResponse(prettyPrint()),
                         responseFields(
-                                fieldWithPath("greetings").description("Lista de greetings"),
-                                fieldWithPath("greetings[0].id").description("id de greeting"),
-                                fieldWithPath("greetings[0].text").description("texto do greeting")
+                                fieldWithPath("[]").description("Lista de greetings"),
+                                fieldWithPath("[].id").description("id do greeting"),
+                                fieldWithPath("[].text").description("texto do greeting")
                         )));
     }
 }
