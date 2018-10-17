@@ -4,6 +4,10 @@ language: java
     global:
     - CODECOV_TOKEN="ce7505ac-7ee4-474c-ad0c-b32b987592cf"
   script: "mvn cobertura:cobertura"
+  # safelist
+  branches:
+    only:
+    - master
   after_success:
   - bash <(curl -s https://codecov.io/bash)
   notifications:
