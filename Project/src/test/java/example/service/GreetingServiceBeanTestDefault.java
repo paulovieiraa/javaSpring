@@ -27,7 +27,7 @@ public class GreetingServiceBeanTestDefault extends DefaultBaseServiceTest {
      * Testes unitarios
      */
 
-    private GreetingService service;
+    private GreetingServiceBean service;
     private List<Greeting> list;
     private Greeting greeting;
 
